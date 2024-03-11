@@ -44,3 +44,26 @@ def main():
     while True:
         order = input("\nSilahkan ketik pesanan Anda: ")
         if order == "done":
+break
+
+        print("====== (ketik 'done' untuk step berikutnya) ======")
+        print(f"||>> {order} sudah ditambahkan ke keranjang <<||")
+        
+        current = head
+        while current is not None:
+            if current.NamaMenu == order:
+                pesanan.append(current.NamaMenu)
+                harga.append(current.Harga)
+                Jml_Pesanan += 1
+                totalHarga += current.Harga
+                break
+            current = current.next
+
+    print("\n|| Pesanan Anda ||")
+    for i in range(Jml_Pesanan):
+        print(f"{pesanan[i]} - Rp.{harga[i]}")
+    print(f"Total Harga Pesanan Anda : Rp.{totalHarga}")
+    print("\n------ Terima Kasih telah E-Order di Warung Kami------\n")
+
+if _name_ == "_main_":
+    main()
