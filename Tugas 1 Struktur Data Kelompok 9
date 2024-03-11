@@ -1,0 +1,23 @@
+class MenuItem:
+    def __init__(self, NamaMenu, Harga):
+        self.NamaMenu = NamaMenu
+        self.Harga = Harga
+        self.next = None
+
+head = None
+tail = None
+
+def addMenuItem(NamaMenu, Harga):
+    global head, tail
+    newItem = MenuItem(NamaMenu, Harga)
+    if head is None:
+        head = newItem
+        tail = newItem
+    else:
+        tail.next = newItem
+        tail = newItem
+
+def DisplayMenu():
+    current = head
+    while current is not None:
+        print(f"{current.NamaMenu} Rp.{current.Harga}")
